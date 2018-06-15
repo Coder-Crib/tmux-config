@@ -1,0 +1,6 @@
+#!/bin/sh
+bat=$(acpi | awk 'NR == 1 { print " "$3"-"$4 }' | tr -d ischarging | tr -d , | tr -d %)
+
+if [ $(acpi | awk 'NR == 1 { print $4 }' | tr -d , | tr -d %) -le 40 ]; then
+	echo "$bat"
+fi

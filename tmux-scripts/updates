@@ -1,0 +1,7 @@
+#!/bin/sh
+
+updates=$(apt list --upgradeable | wc -l)
+
+if [$updates -ne 0]; then
+	echo " $updates"
+fi
